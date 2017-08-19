@@ -13,7 +13,7 @@ pipeline {
     }
     stage(' Git checkout ') {
       steps {
-        git(url: 'https://github.com/mohit-kumar2/jenkins-kss.git', branch: 'mohit')
+        git(url: 'https://github.com/mohit-kumar2/jenkins-kss.git', branch: 'mohit', changelog: true)
       }
     }
     stage('Run Test cases') {
