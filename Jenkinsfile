@@ -28,7 +28,7 @@ pipeline {
     }
     stage('Create and push docker image') {
       steps {
-        sh 'docker build -t myapp1:latest .'
+        sh '/usr/bin/docker build -t myapp1:latest .'
       }
     }
   }
