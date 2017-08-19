@@ -6,10 +6,29 @@ pipeline {
     
   }
   stages {
-    stage('build') {
+    stage('User Confimration') {
+      steps {
+        input 'Ready to go?'
+      }
+    }
+    stage(' Git checkout ') {
+      steps {
+        git(url: 'https://github.com/mohit-kumar2/jenkins-kss.git', branch: 'mohit')
+      }
+    }
+    stage('Run Test cases') {
+      steps {
+        sh 'mvn test'
+      }
+    }
+    stage('Build Artifacts ') {
       steps {
         sh 'mvn package'
-        sh 'ls -R *'
+      }
+    }
+    stage('Create and push docker image') {
+      steps {
+        sh 'docker '
       }
     }
   }
